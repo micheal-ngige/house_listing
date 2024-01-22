@@ -4,8 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Register from './components/Register/Register'
 import Login from "./components/Login/Login";
 import Properties from "./components/Properties";
-import About from "./components/About";
+import About from "./components/About/About";
 import Home from "./components/Home/Home"
+import Footer from "./components/Footer/Footer"
 
 import './App.css'
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/properties" element={<Properties />} />
           <Route path="/About" element={<About />} />
         </Routes>
+        < Footer />
       </BrowserRouter>
     </>
   );
