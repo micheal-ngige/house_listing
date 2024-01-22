@@ -8,3 +8,14 @@ class House(db.Model):
     description= db.Column(db.String(100))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     reviews = db.relationship('Review', backref='house', lazy=True)
+
+    def serialize(self):
+        return{
+            'id':self.id,
+            'housetype':self.housetype,
+            'location':self.location,
+            'price':self.price,
+            'description':self.description,
+            'user_id':self.user_id,
+            'reviews':self.reviews
+        }
