@@ -27,3 +27,57 @@ def create_house():
      except SQLAlchemyError as e:
           return handle_error(e, 400)
 
+   
+def get_houses():
+    try:
+        houses= House.query.all()
+        return jsonify ([house.serialize()for house in houses]),200
+    
+    except SQLAlchemyError as e:
+        return handle_error(e, 400)
+    
+def get_house(id):
+    try:
+        house= House.query.filter_by(id=id).first()
+        return jsonify ([house.serialize()])
+    except SQLAlchemyError as e:
+        return handle_error(e, 400)
+    
+def update_house(id):
+    try:
+        house = House.query.get(id)
+        housetype= request.json['housetype']
+        location = request.json['location']
+        price = request.json['price']
+        description = request.json['description']
+        user_id = request.json['user_id']
+        reviews = request.json['reviews']
+
+        house.housetype= housetype
+        house.location= location
+        house.price = price
+        house.description= description
+        house.user_id = user_id
+        house.reviews = reviews
+
+        db.session.commit()
+        return jsonify ('house updated successfully'), 201
+
+
+    except SQLAlchemyError as e:
+        return handle_error( e , 400)
+
+    
+def delete_house(id):
+    try:
+        house= House.query.get(id)
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify("user deleted successfully")
+    except  SQLAlchemyError as e:
+        return handle_error(e, 400)
+
+
+
+
+
