@@ -15,10 +15,10 @@ def create_house():
      try:
           data = request.get_json()
 
-          if 'housetype' not in data or 'location' not in data or 'price' not in data or 'description' not in data:
+          if 'housetype' not in data or 'location' not in data or 'price' not in data or 'description' not in data or 'url' not in data:
             
                return handle_error('missing data fields', 400)
-          new_house= House(housetype=data['housetype'],location=data['location'],price=data['price'],description=data['description'])
+          new_house= House(housetype=data['housetype'],location=data['location'],price=data['price'],description=data['description'], url=data['url'])
         
           db.session.add(new_house)
           db.session.commit()
@@ -50,6 +50,7 @@ def update_house(id):
         location = request.json['location']
         price = request.json['price']
         description = request.json['description']
+        url= request.json['url']
         # user_id = request.json['user_id']
         # reviews = request.json['reviews']
 
@@ -57,6 +58,7 @@ def update_house(id):
         house.location= location
         house.price = price
         house.description= description
+        house.url = url
         # house.user_id = user_id
         # house.reviews = reviews
 

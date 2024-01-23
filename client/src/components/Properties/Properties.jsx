@@ -21,17 +21,13 @@ const[properties, setProperties]=useState([])
       <h1>Properties</h1>
       <div className="properties--1">
         {properties.map((property) => (
-          <div className="item" key={property.housetype}>
-            {/* <img
-              src="../src/assets/img/e-commerce/product/product-3.jpg"
-              className="image"
-            /> */}
+          <div className="item" key={property.id}>           
+              <img src={property.url} />
+            <h4>House Type: {property.housetype}</h4>
             <h4>Location: {property.location}</h4>
             <h4>Price: {property.price}</h4>
-            <h4>Description: {property.description}</h4>           
-            <button className='seemore--btn'>
-              see more
-            </button>
+            <h4>Description: {property.description}</h4>
+            <button className="seemore--btn">see more</button>
           </div>
         ))}
       </div>
