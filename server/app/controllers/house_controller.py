@@ -15,10 +15,10 @@ def create_house():
      try:
           data = request.get_json()
 
-          if 'housetype' not in data or 'location' not in data or 'price' not in data or 'description' not in data or 'user_id' not in data or 'review_id' not in data:
+          if 'housetype' not in data or 'location' not in data or 'price' not in data or 'description' not in data:
             
                return handle_error('missing data fields', 400)
-          new_house= House(housetype=data['housetype'],location=data['location'],price=data['price'],description=data['description'],user_id=data['user_id'], review_id=data['review_id'])
+          new_house= House(housetype=data['housetype'],location=data['location'],price=data['price'],description=data['description'])
         
           db.session.add(new_house)
           db.session.commit()
@@ -50,15 +50,15 @@ def update_house(id):
         location = request.json['location']
         price = request.json['price']
         description = request.json['description']
-        user_id = request.json['user_id']
-        reviews = request.json['reviews']
+        # user_id = request.json['user_id']
+        # reviews = request.json['reviews']
 
         house.housetype= housetype
         house.location= location
         house.price = price
         house.description= description
-        house.user_id = user_id
-        house.reviews = reviews
+        # house.user_id = user_id
+        # house.reviews = reviews
 
         db.session.commit()
         return jsonify ('house updated successfully'), 201
@@ -71,9 +71,9 @@ def update_house(id):
 def delete_house(id):
     try:
         house= House.query.get(id)
-        db.session.delete(user)
+        db.session.delete(house)
         db.session.commit()
-        return jsonify("user deleted successfully")
+        return jsonify("house deleted successfully")
     except  SQLAlchemyError as e:
         return handle_error(e, 400)
 
