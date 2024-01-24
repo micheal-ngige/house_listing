@@ -2,6 +2,9 @@ from flask import Blueprint
 from app.controllers.user_controller import create_user, get_users, get_user, update_user, delete_user
 from app.controllers.house_controller import create_house, get_houses, get_house, update_house, delete_house
 from app.controllers.review_controller import create_review, get_reviews, get_review, update_review, delete_review
+from flask import request, jsonify
+from flask_bcrypt import Bcrypt
+
 
 bp = Blueprint('bp', __name__)
 
@@ -12,8 +15,14 @@ def home():
 # crud for users
 @bp.route('/user', methods=['POST'])
 def add_user():
-    return create_user()
+    username = request.json.get('username', '')
+    if len(username) < 5:
+        return jsonify({'message': 'Error: Username must be at least 5 characters'}), 400
+    
+    # If username length is okay, proceed with user creation
+    response, status_code = create_user()
 
+    return jsonify(response), status_code
 @bp.route('/user', methods=['GET'])
 def getusers():
     return get_users()
@@ -73,5 +82,3 @@ def updatereview(id):
 @bp.route('/review/<int:id>', methods=['DELETE'])
 def deletereview(id):
     return delete_review(id)
-
-     

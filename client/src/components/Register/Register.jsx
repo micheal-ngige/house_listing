@@ -15,31 +15,28 @@ const getpassword = (e) => {
   setPassword(e.target.value);
   console.log(password);
 };
-const handleSubmit =async() =>{
-  try{
-      const response = await fetch('http://127.0.0.1:5000/user',
-         { 
-            method: 'POST', 
-            headers: { 
-                'Content-Type':  
-                    'application/json;charset=utf-8'
-            }, 
-            body: JSON.stringify({ username, password }),
-        } )
+const handleSubmit = async () => {
+  try {
+    const response = await fetch('http://127.0.0.1:5000/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({ username, password }),
+    });
 
-       const data = await response.json();
-       console.log(data)
+    const data = await response.json();
 
-       alert("user registered successfully")
-
+    if (response.ok) {
+      alert('User registered successfully');
+    } else {
+      // If there are errors, display them to the user
+      alert(`Error: ${data.message}`);
     }
-
-    catch(error){
-      console.error("This is the error:",error)
-    }
-
-}
-
+  } catch (error) {
+    console.error('This is the error:', error);
+  }
+};
   return (
     <div className="register--container">
       <form onSubmit={handleSubmit} className="register--form">
