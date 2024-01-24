@@ -30,49 +30,56 @@ export const productData = [
   },
   {
     id: 2,
-    imageurl: "https://i.roamcdn.net/prop/brk/listing-thumb-376w/c2de2ebf7d8b6400892988063eccde3f/-/prod-property-core-backend-media-brk/6200818/a4abeb35-9eaa-4383-a507-3443d17b7e70.jpg",
+    imageurl:
+      "https://i.roamcdn.net/prop/brk/listing-thumb-376w/c2de2ebf7d8b6400892988063eccde3f/-/prod-property-core-backend-media-brk/6200818/a4abeb35-9eaa-4383-a507-3443d17b7e70.jpg",
     name: "Bedsitter",
     price: "Ksh2500",
     description: "Some text about the product..",
   },
   {
     id: 3,
-    imageurl: "./nai2.jpg",
+    imageurl:
+      "https://images.prop24.com/ml53iyqhdgxxywsoz5lbnqmdzi/Crop237x198",
     name: "Bedsitter",
     price: "Ksh3500",
     description: "Some text about the product..",
   },
   {
     id: 4,
-    imageurl: "./nai2.jpg",
+    imageurl:
+      "https://images.prop24.com/frhnf2jcsaie5qvwcjh76jcwda/Crop237x198",
     name: "Bedsitter",
     price: "Ksh4500",
     description: "Some text about the product..",
   },
   {
     id: 5,
-    imageurl: "./nai2.jpg",
+    imageurl:
+      "https://images.prop24.com/n7ocxlhca66mmh7x6fr746jysy/Crop237x198",
     name: "Bedsitter",
     price: "Ksh5500",
     description: "Some text about the product..",
   },
   {
     id: 6,
-    imageurl: "./nai2.jpg",
+    imageurl:
+      "https://letsmove.co.ke/wp-content/uploads/2024/01/unnamed-file-768x1024.jpeg",
     name: "Bedsitter",
     price: "Ksh6500",
     description: "Some text about the product..",
   },
   {
     id: 7,
-    imageurl: "./nai2.jpg",
+    imageurl:
+      "https://letsmove.co.ke/wp-content/uploads/2023/05/341996578_548625097334639_2736242146929541351_n.jpg",
     name: "Bedsitter",
     price: "Ksh7500",
     description: "Some text about the product..",
   },
   {
     id: 8,
-    imageurl: "./nai2.jpg",
+    imageurl:
+      "https://images.prop24.com/l4t7v47s2chnstu4tba2y62mjy/Crop237x198",
     name: "Bedsitter",
     price: "Ksh8500",
     description: "Some text about the product..",
